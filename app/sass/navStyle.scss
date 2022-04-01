@@ -1,0 +1,76 @@
+@import "./valuable.scss";
+
+@media(min-width: 50vw) {
+    .nav-left {
+        display: none;
+    }
+
+    .nav-right {
+        display: inline;
+    }
+}
+
+@media(max-width: 50vw) {
+    .nav-left {
+        display: inline;
+    }
+
+    .nav-right {
+        display: none;
+    }
+}
+
+@mixin makeCenter {
+    display: flex;
+    align-items: center;
+    justify-content: center;   
+}
+
+@mixin navBox {
+    @include makeCenter();
+
+    width: max-content;
+
+    padding: 8px;
+    margin: 0 8px 0 8px;
+    border-radius: 12px;
+
+    &:hover {
+        background-color: $strong-low-am;
+    }
+}
+
+@mixin smallNav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.nav-container {
+    font-weight: bold;
+
+    background-color: $strong-am;
+    color: $text-color;
+    height: 56px;
+    width: 100vw;
+
+    .nav-left {
+        @include smallNav();
+
+        float: left;
+
+        span {
+            @include navBox();
+        }
+    }
+
+    .nav-right {
+        @include smallNav();
+
+        float: right;
+
+        span {
+            @include navBox();
+        }
+    }
+}
